@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    font-family: "Manrope", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.roc {
+    font-family: roc-grotesk-variable, sans-serif;
+}
+
+.roc_title {
+    font-family: roc-grotesk-variable, sans-serif;
+    font-variation-settings: "wdth" 110, "wght" 500;
+}
+
+.roc_bold {
+    font-family: roc-grotesk-variable, sans-serif;
+    font-variation-settings: "wdth" 100, "wght" 700;
+}
+
+.roc_extra_light {
+    font-family: roc-grotesk-variable, sans-serif;
+    font-variation-settings: "wdth" 110, "wght" 300;
+}
+
+.roc_head {
+    font-family: roc-grotesk-variable, sans-serif;
+    font-variation-settings: "wdth" 100, "wght" 400;
+}
+
+.roc_text {
+    font-family: roc-grotesk-variable, sans-serif;
+    font-variation-settings: "wdth" 100, "wght" 400;
+}
+
+.roc_number {
+    font-family: roc-grotesk-variable, sans-serif;
+    font-variation-settings: "wdth" 90, "wght" 300;
+}
+
+.poppins {
+    font-family: "Poppins", sans-serif;
+}
+
+@layer components {
+    .button-primary {
+        @apply px-6 py-3 rounded-xl inline-flex justify-center items-center gap-3 text-white font-semibold leading-6 bg-gradient-to-r from-[#472FD7] to-[#0E78F5] hover:from-[#3924BB] hover:to-[#0A55AD];
+    }
+
+    .button-secondary {
+        @apply px-6 py-3 rounded-xl inline-flex justify-center items-center gap-3 text-dark-blue-10 hover:text-white font-semibold leading-6 bg-white hover:bg-gradient-to-r hover:from-[#472FD7] hover:to-[#0E78F5];
+    }
+
+    .button-ghost {
+        @apply px-6 py-3 rounded-xl inline-flex justify-center items-center gap-3 border border-white text-white hover:text-dark-blue-10 font-semibold leading-6 hover:bg-white transition-all duration-150;
+    }
+
+    .button-text {
+        @apply px-1 py-2 inline-flex justify-center items-center gap-1 font-semibold;
+    }
+
+    .dark-grad {
+        @apply bg-gradient-to-br from-[#151C24] to-[#a00371];
+    }
+
+    .light-grad {
+        @apply bg-gradient-to-b from-[#ffffff] to-[#f1e7f1];
+    }
+
+    .main-box {
+        @apply flex md:flex-row flex-col max-w-xs gap-2;
+    }
+
+    .main-box-icon-area {
+        @apply flex items-start justify-start md:justify-center;
+    }
+
+    .main-box-text-area {
+        @apply md:px-3 py-0.5 flex flex-col gap-3;
+    }
+
+    input[type="file"] {
+        @apply file:bg-myPurple file:border-none file:rounded file:text-gray-50 file:font-medium;
+    }
+
+    .text-transparent {
+        color: transparent;
+    }
+
+    .side-icon {
+        @apply w-5 h-5;
+    }
+
+    .card {
+        @apply bg-white rounded-md border border-gray-200 shadow-md;
+    }
+
+    .card_head {
+        @apply p-6 bg-white;
+    }
+
+    .card_body {
+        @apply p-6 border border-l-0 border-r-0 border-gray-300;
+    }
+
+    .card_footer {
+        @apply p-6 bg-white;
+    }
+
+    .card_img {
+        @apply w-full rounded-t-md object-cover object-center;
+    }
+
+    .card_title {
+        @apply mb-2 text-2xl font-bold tracking-tight text-gray-900;
+    }
+
+
+    .form_label {
+        @apply text-gray-900 font-medium text-base;
+    }
+
+    .form_input {
+        @apply text-gray-900 border-2 rounded-2xl px-4 py-2 w-full block;
+    }
+
+    .table__responsive {
+        @apply overflow-auto relative shadow-md rounded-md;
+    }
+
+    table,
+    .table {
+        @apply w-full text-sm text-left text-gray-500;
+    }
+
+    thead {
+        @apply text-gray-700 bg-white border-b;
+    }
+
+    thead.thead__primary {
+        @apply text-white uppercase bg-sky-500 dark:bg-sky-700;
+    }
+
+    thead.thead__danger {
+        @apply text-white uppercase bg-rose-500 dark:bg-rose-700;
+    }
+
+    thead.thead__success {
+        @apply text-white uppercase bg-teal-500 dark:bg-teal-700;
+    }
+
+    thead.thead__warning {
+        @apply text-white uppercase bg-amber-500 dark:bg-amber-700;
+    }
+
+    thead.thead__info {
+        @apply text-white uppercase bg-indigo-500 dark:bg-indigo-700;
+    }
+
+    thead.thead__secondary {
+        @apply text-white uppercase bg-gray-500 dark:bg-gray-700;
+    }
+
+    thead.thead__dark {
+        @apply text-white uppercase bg-gray-800 dark:bg-gray-900;
+    }
+
+    th,
+    tr,
+    td {
+        @apply py-3 px-6 text-left whitespace-nowrap text-ellipsis;
+    }
+
+    th {
+        @apply font-semibold;
+    }
+
+    tbody tr {
+        @apply border-b odd:border-gray-200 odd:bg-white even:bg-gray-100;
+    }
+
+    tfoot {
+        @apply text-gray-700 uppercase bg-gray-100;
+    }
+
+    .table__caption {
+        @apply p-5 text-left text-gray-700 bg-white;
+    }
+
+    .nav__link {
+        @apply flex items-center p-2 text-base font-normal text-white rounded-lg hover:bg-sky-50 hover:text-sky-400;
+    }
+
+    .nav__dropdown {
+        @apply flex items-center p-2 w-full text-base font-normal text-white rounded-lg transition duration-75 hover:bg-sky-50 hover:text-sky-400;
+    }
+
+    .form__cols__1 {
+        @apply grid grid-cols-1;
+    }
+
+    .form__cols__2 {
+        @apply grid grid-flow-row gap-y-6 gap-2 md:gap-y-0 md:gap-6 md:grid-cols-2 lg:col-span-4;
+    }
+
+    .form__cols__3 {
+        @apply grid grid-cols-1 gap-y-6 md:gap-y-0 md:gap-6 md:grid-cols-3 lg:col-span-4;
+    }
+
+    .form__group {
+        @apply my-4;
+    }
+
+    .form__group__checkbox {
+        @apply my-4 flex items-center gap-2;
+    }
+
+    .side_link_active {
+        @apply bg-gradient-to-br from-myPurple via-myPurple to-purple-600 shadow-myPurple !text-white;
+    }
+
+    .side_link_active svg {
+        @apply !text-white;
+    }
+
+    .card {
+        @apply bg-white rounded-md border border-gray-200 shadow-md;
+    }
+
+    .card-sm {
+        @apply bg-white rounded-md border border-gray-200 shadow-md lg:w-1/2;
+    }
+
+    .card__head {
+        @apply p-6 border-b border-gray-300 bg-white;
+    }
+
+    .card__body {
+        @apply p-6;
+    }
+
+    .card__footer {
+        @apply p-6 border-t border-gray-300 bg-gray-100;
+    }
+
+    .card__img {
+        @apply w-full rounded-t-md object-cover object-center;
+    }
+
+    .card__title {
+        @apply mb-2 text-2xl font-bold tracking-tight text-gray-600;
+    }
+
+    .form_label_1 {
+        @apply text-sm text-gray-500 capitalize;
+    }
+
+    .form_input_1 {
+        @apply block py-2.5 px-3 w-full text-sm text-gray-900 rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-myPurple transition-colors duration-200 delay-100;
+    }
+
+    .checkbox_input {
+        @apply relative h-4 w-4 cursor-pointer appearance-none rounded-md border border-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-gray-500 before:opacity-0 before:transition-opacity checked:border-myPurple checked:bg-myPurple checked:before:bg-myPurple hover:before:opacity-10;
+    }
+
+    .form_btn_black {
+        @apply py-2.5 px-10 text-base font-medium capitalize text-gray-900 bg-gray-200 rounded-lg focus:outline-none focus:ring-0;
+    }
+
+    .form_btn_purple {
+        @apply py-2.5 px-10 text-[15px] shadow-md font-medium capitalize bg-myPurple rounded-lg text-white focus:outline-none focus:ring-0;
+    }
+
+    .table_edit_button {
+        @apply hover:text-myPurple transition-all duration-200 inline-flex justify-center items-center gap-2;
+    }
+
+    .table_delete_button {
+        @apply hover:text-red-600 transition-all duration-200 inline-flex justify-center items-center gap-2;
+    }
+
+    .modal {
+        @apply backdrop-blur-[1px] bg-gray-900/60 overflow-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 md:h-full h-screen transition-transform duration-300 ease-in;
+    }
+
+    .modal__head {
+        @apply flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600 bg-white sticky top-0 z-10;
+    }
+
+    .modal__head__primary {
+        @apply flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600 bg-sky-500 dark:bg-sky-700 text-white sticky top-0 z-10;
+    }
+
+    .modal__head__primary button {
+        @apply text-white hover:text-gray-800 dark:hover:bg-white;
+    }
+
+    .modal__head__danger {
+        @apply flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600 bg-rose-500 dark:bg-rose-700 text-white sticky top-0 z-10;
+    }
+
+    .modal__head__danger button {
+        @apply text-white hover:text-gray-800 dark:hover:bg-white;
+    }
+
+    .modal__head__success {
+        @apply flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600 bg-teal-500 dark:bg-teal-700 text-white sticky top-0 z-10;
+    }
+
+    .modal__head__success button {
+        @apply text-white hover:text-gray-800 dark:hover:bg-white;
+    }
+
+    .modal__head__warning {
+        @apply flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600 bg-amber-500 dark:bg-amber-700 text-white sticky top-0 z-10;
+    }
+
+    .modal__head__warning button {
+        @apply text-white hover:text-gray-800 dark:hover:bg-white;
+    }
+
+    .modal__head__info {
+        @apply flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600 bg-indigo-500 dark:bg-indigo-700 text-white sticky top-0 z-10;
+    }
+
+    .modal__head__info button {
+        @apply text-white hover:text-gray-800 dark:hover:bg-white;
+    }
+
+    .modal__head__secondary {
+        @apply flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600 bg-gray-500 dark:bg-gray-700 text-white sticky top-0 z-10;
+    }
+
+    .modal__head__secondary button {
+        @apply text-white hover:text-gray-800 dark:hover:bg-white;
+    }
+
+    .modal__head__dark {
+        @apply flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600 bg-gray-800 dark:bg-gray-900 text-white sticky top-0 z-10;
+    }
+
+    .modal__head__dark button {
+        @apply text-white hover:text-gray-800 dark:hover:bg-white;
+    }
+
+    .working_area_card {
+        @apply bg-cover drop-shadow-md flex items-end w-full sm:w-56 h-56 rounded;
+    }
+}

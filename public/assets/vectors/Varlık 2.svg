@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="katman_2" data-name="katman 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 322.38 327.36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dedee9;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #9c8b06;
+      }
+    </style>
+  </defs>
+  <g id="katman_1" data-name="katman 1">
+    <rect class="cls-1" x="226.84" width="95.54" height="95.54"/>
+    <rect class="cls-2" x="13.03" y="144.03" width="83.2" height="83.2" transform="translate(77.56 -6.51) rotate(23.21)"/>
+    <rect class="cls-1" x="180.65" y="185.63" width="141.73" height="141.73"/>
+  </g>
+</svg>

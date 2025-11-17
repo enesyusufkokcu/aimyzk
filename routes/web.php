@@ -34,7 +34,7 @@ Route::post('/contact-send', [ContactController::class, 'send'])->name('contact.
 // Route::get('/blog', [BlogController::class, 'blogIndex'])->name('blog');
 // Route::get('/blog-detail/{blog}', [BlogController::class, 'blogDetail'])->name('blog-detail');
 
-Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('auth', 'ip.restrict')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/blog-index', [AdminController::class, 'blogIndex'])->name('blog.index');
@@ -45,7 +45,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::post('/blog-delete/{blog}', [AdminController::class, 'blogDelete'])->name('blog.delete');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'ip.restrict')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

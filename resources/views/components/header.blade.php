@@ -1,7 +1,7 @@
 <nav id="navbar" class="px-4 lg:px-8 2xl:px-10 w-full absolute z-10">
     <div class="flex justify-between items-center py-6">
         <a href="{{ route('welcome') }}" class="w-[162px]">
-            <img src="{{ asset('assets/images/logo.png') }}" class="h-[100px]" alt="Aim yapay zeka logo">
+            <img src="{{ asset('assets/images/logo.png') }}" class="h-[80px] md:h-[100px]" alt="Aim yapay zeka logo">
         </a>
         <div class="hidden lg:flex justify-between items-center gap-6 font-medium">
             {{-- <a href="{{ route('blog') }}"

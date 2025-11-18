@@ -15,9 +15,7 @@ class IpRestriction
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $allowedIps = [
-            '192.168.1.193',
-        ];
+        $allowedIps = explode(',', env('ALLOWED_IPS'));
 
         if (!in_array($request->ip(), $allowedIps)) {
             abort(403, 'Bu sayfaya erişim izniniz yok.');

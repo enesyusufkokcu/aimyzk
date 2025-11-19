@@ -15,7 +15,7 @@
             </p>
             {{-- <a href="{{ route('blog') }}"
                 class="py-[6px] px-2 flex justify-center items-center text-my-gray-30 font-medium text-sm hover:text-white transition duration-150 cursor-pointer">
-                Makaleler
+                Blog
             </a> --}}
             <a href="{{ route('about') }}"
                 class="py-[6px] px-2 flex justify-center items-center text-my-gray-30 font-medium text-sm hover:text-white transition duration-150 cursor-pointer">

@@ -15,11 +15,11 @@
     <!-- Links -->
 
     <!-- Vite -->
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-
-    <!-- Builds -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app-c9d2402d.css') }}">
-    <link rel="application/javascript" href="{{ asset('build/assets/app-f9f1eaaf.js') }}">
+    @if (env('APP_TYPE') == 'dev')
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @else
+        @include('layouts.vite')
+    @endif
 </head>
 
 <body class="bg-[#f8f7fa] text-gray-900">

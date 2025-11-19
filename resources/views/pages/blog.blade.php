@@ -5,7 +5,7 @@
         <div class="absolute w-full h-full bg-black/80 z-[1]"></div>
         <div class="absolute w-full h-full flex flex-col items-center justify-end pb-20 px-4 sm:px-16 md:px-32 z-[2]">
             <h1 class="roc_head text-white/90 text-5xl text-center">
-                Makaleler
+                Bloglar
             </h1>
         </div>
     </div>
@@ -13,7 +13,7 @@
         <div class="container p-6 mx-auto space-y-8">
             <div class="flex flex-col items-center justify-center gap-4">
                 <h3 class="text-base uppercase roc_title">
-                    Güncel Makalelerimize <span class="text-[#a00371]">Ulaşın</span>
+                    Güncel Bloglarımıza <span class="text-[#a00371]">Ulaşın</span>
                 </h3>
                 <hr class="border border-[#a00371] px-6">
             </div>

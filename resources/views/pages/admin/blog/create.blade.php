@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('breadcumb')
     <x-admin.breadcumb>
-        <x-admin.breadcumb-link active>Makale Oluştur</x-admin.breadcumb-link>
+        <x-admin.breadcumb-link active>Blog Oluştur</x-admin.breadcumb-link>
     </x-admin.breadcumb>
 @endsection
 @section('content')
-    <x-admin.card title="Makale Oluşturun" class="" id="">
+    <x-admin.card title="Blog Oluşturun" class="" id="">
         <x-slot name="body">
             <form action="{{ route('admin.blog.store') }}" method="post" enctype="multipart/form-data">
                 @csrf

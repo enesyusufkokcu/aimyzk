@@ -5,8 +5,6 @@
     </x-admin.breadcumb>
 @endsection
 @section('content')
-   
 @endsection
 @section('javascript')
-
 @endsection

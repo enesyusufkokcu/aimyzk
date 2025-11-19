@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OldActivitiesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +18,7 @@ use App\Http\Controllers\ProfileController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('pages.welcome');
-})->name('welcome');
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 Route::get('/hakkimizda', function () {
     return view('pages.about');
@@ -31,19 +30,31 @@ Route::post('/contact-send', [ContactController::class, 'send'])->name('contact.
 //     return view('pages.blog-detail');
 // })->name('blog-detail');
 
-// Route::get('/blog', [BlogController::class, 'blogIndex'])->name('blog');
-// Route::get('/blog-detail/{blog}', [BlogController::class, 'blogDetail'])->name('blog-detail');
+Route::get('/blog', [BlogController::class, 'blogIndex'])->name('blog');
+Route::get('/blog-detail/{blog}', [BlogController::class, 'blogDetail'])->name('blog-detail');
 
-Route::prefix('admin')->name('admin.')->middleware('auth', 'ip.restrict')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+Route::prefix('admin')
+    ->name('admin.')
+    ->middleware('auth', 'ip.restrict')
+    ->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-    Route::get('/blog-index', [AdminController::class, 'blogIndex'])->name('blog.index');
-    Route::get('/blog-create-index', [AdminController::class, 'blogCreateIndex'])->name('blog.create.index');
-    Route::get('/blog-edit/{blog}', [AdminController::class, 'blogEdit'])->name('blog.edit');
-    Route::post('/blog-create', [AdminController::class, 'blogStore'])->name('blog.store');
-    Route::post('/blog-update/{blog}', [AdminController::class, 'blogUpdate'])->name('blog.update');
-    Route::post('/blog-delete/{blog}', [AdminController::class, 'blogDelete'])->name('blog.delete');
-});
+        // Blog Routes
+        Route::get('/blog-index', [AdminController::class, 'blogIndex'])->name('blog.index');
+        Route::get('/blog-create-index', [AdminController::class, 'blogCreateIndex'])->name('blog.create.index');
+        Route::get('/blog-edit/{blog}', [AdminController::class, 'blogEdit'])->name('blog.edit');
+        Route::post('/blog-create', [AdminController::class, 'blogStore'])->name('blog.store');
+        Route::post('/blog-update/{blog}', [AdminController::class, 'blogUpdate'])->name('blog.update');
+        Route::post('/blog-delete/{blog}', [AdminController::class, 'blogDelete'])->name('blog.delete');
+
+        // Old Activities Routes
+        Route::get('/old-activities-index', [AdminController::class, 'oldActivityIndex'])->name('old-activities.index');
+        Route::get('/old-activities-create-index', [AdminController::class, 'oldActivityCreateIndex'])->name('old-activities.create.index');
+        Route::post('/old-activities-store', [OldActivitiesController::class, 'store'])->name('old-activities.store');
+        Route::get('/old-activities-edit/{oldActivity}', [AdminController::class, 'oldActivityEdit'])->name('old-activities.edit');
+        Route::post('/old-activities-update/{oldActivity}', [OldActivitiesController::class, 'update'])->name('old-activities.update');
+        Route::post('/old-activities-delete/{oldActivity}', [OldActivitiesController::class, 'destroy'])->name('old-activities.delete');
+    });
 
 Route::middleware('auth', 'ip.restrict')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

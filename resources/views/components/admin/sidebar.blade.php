@@ -3,7 +3,8 @@
     aria-label="Sidebar">
     <div class="h-[64px] flex justify-center px-6 my-2 items-center">
         <a href="{{ route('welcome') }}" class="flex items-center justify-center gap-2">
-            <img class="object-cover" src="{{ asset('assets/logos/Vector(1).svg') }}" alt="">
+            <img class="object-cover h-[70px]" src="{{ asset('assets/images/logo.png') }}" alt="">
+            <span class="text-lg font-semibold poppins">ADMİN PANEL</span>
         </a>
     </div>
     <div class="h-[calc(100vh-70px)] px-3 pb-4 pt-8 overflow-y-auto text-gray-700">
@@ -43,7 +44,7 @@
                         <path d="M3.41016 22C3.41016 18.13 7.26018 15 12.0002 15C13.0402 15 14.0402 15.15 14.9702 15.43"
                             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span class="flex-1 text-left rtl:text-right whitespace-nowrap text-[15px] font-normal">Makale
+                    <span class="flex-1 text-left rtl:text-right whitespace-nowrap text-[15px] font-normal">Blog
                         Ayarları</span>
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 10 6">
@@ -62,7 +63,7 @@
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" />
                             </svg>
-                            Makaleler
+                            Bloglar
                         </a>
                     </li>
                     <li>
@@ -75,7 +76,64 @@
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" />
                             </svg>
-                            Makale Oluştur
+                            Blog Oluştur
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <button type="button"
+                    class="sidebarDropdownButton flex items-center gap-1.5 w-full p-2 text-base transition duration-75 rounded-lg group hover:bg-gray-100 {{ Route::is('admin.old-activities.*') ? 'bg-gray-100' : '' }}"
+                    data-collapse-toggle="old_activities_drop">
+                    <svg class="side-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M19.2101 15.74L15.67 19.2801C15.53 19.4201 15.4 19.68 15.37 19.87L15.18 21.22C15.11 21.71 15.45 22.05 15.94 21.98L17.29 21.79C17.48 21.76 17.75 21.63 17.88 21.49L21.42 17.95C22.03 17.34 22.32 16.63 21.42 15.73C20.53 14.84 19.8201 15.13 19.2101 15.74Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M18.7002 16.25C19.0002 17.33 19.8402 18.17 20.9202 18.47" stroke="currentColor"
+                            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M3.41016 22C3.41016 18.13 7.26018 15 12.0002 15C13.0402 15 14.0402 15.15 14.9702 15.43"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <span class="flex-1 text-left rtl:text-right whitespace-nowrap text-[15px] font-normal">Etkinlik
+                        Ayarları</span>
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 4 4 4-4" />
+                    </svg>
+                </button>
+                <ul id="old_activities_drop"
+                    class="{{ Route::is('admin.old-activities.*') ? 'block' : 'hidden' }} py-2 space-y-2">
+                    <li>
+                        <a href="{{ route('admin.old-activities.index') }}"
+                            class="flex items-center gap-2 text-[15px] justify-start w-full p-2 transition duration-75 rounded-lg group hover:bg-gray-100 {{ Route::is('admin.old-activities.index') ? 'side_link_active' : '' }}">
+                            <svg class="w-3 h-3 ml-5" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            Geçmiş Etkinlikler
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.old-activities.create.index') }}"
+                            class="flex items-center gap-2 text-[15px] justify-start w-full p-2 transition duration-75 rounded-lg group hover:bg-gray-100 {{ Route::is('admin.old-activities.create.index') ? 'side_link_active' : '' }}">
+                            <svg class="w-3 h-3 ml-5" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            Geçmiş Etkinlik Oluştur
                         </a>
                     </li>
                 </ul>

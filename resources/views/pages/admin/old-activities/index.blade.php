@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('breadcumb')
     <x-admin.breadcumb>
-        <x-admin.breadcumb-link active>Makaleler</x-admin.breadcumb-link>
+        <x-admin.breadcumb-link active>Geçmiş Etkinlikler</x-admin.breadcumb-link>
     </x-admin.breadcumb>
 @endsection
 @section('content')
@@ -11,11 +11,12 @@
             <th class="text-center">İşlem</th>
         </x-slot>
         <x-slot name="body">
-            @foreach ($blogs as $blog)
+            @foreach ($oldActivities as $oldActivity)
                 <tr>
-                    <td>{{ $blog->title }}</td>
+                    <td class="capitalize">{{ $oldActivity->title }}</td>
                     <td class="flex gap-2 items-center justify-center">
-                        <a class="table_edit_button" href="{{ route('admin.blog.edit', ['blog' => $blog]) }}">
+                        <a class="table_edit_button"
+                            href="{{ route('admin.old-activities.edit', ['oldActivity' => $oldActivity]) }}">
                             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H15C20 22 22 20 22 15V13"
                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -29,9 +30,10 @@
                                     stroke-linejoin="round" />
                             </svg>
                         </a>
-                        <form id="delete-{{ $blog->id }}" action="{{ route('admin.blog.delete', ['blog' => $blog]) }}"
+                        <form id="delete-{{ $oldActivity->id }}"
+                            action="{{ route('admin.old-activities.delete', ['oldActivity' => $oldActivity]) }}"
                             method="post"> @csrf
-                            <button form="delete-{{ $blog->id }}" type="submit" class="table_delete_button">
+                            <button form="delete-{{ $oldActivity->id }}" type="submit" class="table_delete_button">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
                                     <path
                                         d="M21 6.73C20.98 6.73 20.95 6.73 20.92 6.73C15.63 6.2 10.35 6 5.12 6.53L3.08 6.73C2.66 6.77 2.29 6.47 2.25 6.05C2.21 5.63 2.51 5.27 2.92 5.23L4.96 5.03C10.28 4.49 15.67 4.7 21.07 5.23C21.48 5.27 21.78 5.64 21.74 6.05C21.71 6.44 21.38 6.73 21 6.73Z"

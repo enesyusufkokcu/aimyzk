@@ -20,7 +20,7 @@ class ContactController extends Controller
         try {
             // MAİL GÖNDER
             Mail::raw("İsim Soyisim: {$validated['name']}\n" . "E-Posta: {$validated['email']}\n" . "Telefon: {$validated['phone_number']}\n", function ($message) use ($validated) {
-                $message->to('enesyusufkokcu@gmail.com')->subject('İletişim Formu Mesajı');
+                $message->to('info@aimyapayzeka.com')->subject('İletişim Formu Mesajı');
             });
 
             return back()->with('success', 'Başarıyla gönderildi!');
